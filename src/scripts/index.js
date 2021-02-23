@@ -8,20 +8,25 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const url = process.env.BASE_PATH;
+const container = document.getElementsByClassName("p-accordion__list")[0];
 
 const getContacts = () => {
   axios.get(url).then((response) => {
     const data = response?.data?.results;
     if (data && data.length > 0) {
-      let container = document.getElementsByClassName("p-accordion__list")[0];
-      data.map((value) => {
-        container.innerHTML += setContactData(accordion, value);
-      });
-
-      let accordions = document.querySelectorAll(".p-accordion")[0];
-      setupAccordion(accordions);
+      data.map(appendAccordion);
+      setAccordionsEvents();
     }
   });
+};
+
+const appendAccordion = (value) => {
+  container.innerHTML += setContactData(accordion, value);
+};
+
+const setAccordionsEvents = () => {
+  let accordions = document.querySelectorAll(".p-accordion")[0];
+  setupAccordion(accordions);
 };
 
 const setContactData = (target, data) => {
@@ -44,10 +49,9 @@ const setContactData = (target, data) => {
     ", " +
     data.location.country;
 
-  const name = data.name.first + " " + data.name.last;
-  const title = data.name.title + " " + data.name.last + " - " + data.email;
-
-  const search = "https://www.google.de/maps/search/" + address;
+  const name = `${data.name.first} ${data.name.last}`;
+  const title = `${data.name.title} ${data.name.last} - ${data.email}`;
+  const search = `https://www.google.de/maps/search/${address}`;
 
   return target
     .replaceAll(BUTTON_TEXT_KEY, title)
