@@ -1,17 +1,17 @@
 {
-  "name": "webpack-starter",
+  "name": "contacts",
   "version": "1.0.0",
-  "description": "A light foundation for your next frontend project based on webpack.",
   "scripts": {
     "lint": "npm run lint:styles; npm run lint:scripts",
     "lint:styles": "stylelint src",
     "lint:scripts": "eslint src",
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js",
-    "start": "webpack serve --config webpack/webpack.config.dev.js"
+    "start": "webpack serve --config webpack/webpack.config.dev.js",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wbkd/webpack-starter.git"
+    "url": "git+https://github.com/MarcoABCorrea/contacts.git"
   },
   "keywords": [
     "webpack",
@@ -21,10 +21,9 @@
     "javascript",
     "webdev"
   ],
-  "author": "webkid.io",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wbkd/webpack-starter/issues"
+    "url": "https://github.com/MarcoABCorrea/contacts/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -40,6 +39,7 @@
     "eslint": "^7.15.0",
     "eslint-loader": "^4.0.2",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.1.0",
     "html-loader": "^1.3.2",
     "html-webpack-plugin": "^4.5.0",
     "mini-css-extract-plugin": "^1.3.2",
