@@ -1,6 +1,43 @@
+@import "node_modules/vanilla-framework/scss/vanilla";
+@include vanilla;
+@import "./accordion";
+
 $body-color: slateblue;
 
 body {
   color: $body-color;
   font-family: sans-serif;
+
+  .navbar {
+    display: flex;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+
+      &:hover {
+        background: #ddd;
+        color: black;
+      }
+    }
+
+    a:nth-child(1) {
+      margin-right: auto;
+    }
+  }
+
+  #container {
+    margin-top: 2rem;
+    padding: 2rem;
+  }
 }
