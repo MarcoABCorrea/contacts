@@ -1,18 +1,62 @@
+@import "./mixins.scss";
+
 .p-accordion {
   section.p-accordion__panel {
+    @include breakpoint("<tablet") {
+      text-align: center;
+      padding: 2rem;
+    }
+
     img {
       position: relative;
       top: 50%;
       transform: translateY(-50%);
       padding: 0 1rem;
+
+      @include breakpoint("<tablet") {
+        transform: none;
+      }
     }
 
     div.contact-info {
       display: inline-block;
+
+      a {
+        color: inherit;
+      }
     }
 
     div.actions {
       text-align: center;
+
+      a.button {
+        display: inline-block;
+        border-style: solid;
+        border-width: 1px;
+        width: auto;
+        margin: 0 0 1.2rem 0;
+        background-color: #fff;
+        border-color: rgba(0, 0, 0, 0.56);
+        color: #111;
+        padding: calc(0.4rem - 1px) 1rem;
+
+        &:hover {
+          text-decoration: none;
+          background-color: #f2f2f2;
+          border-color: rgba(0, 0, 0, 0.56);
+        }
+
+        @include breakpoint("<tablet") {
+          width: 100%;
+        }
+      }
+
+      @include breakpoint("<tablet") {
+        button.call,
+        button.send-email {
+          width: 100%;
+        }
+      }
     }
   }
 }

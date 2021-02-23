@@ -1,6 +1,7 @@
 @import "node_modules/vanilla-framework/scss/vanilla";
 @include vanilla;
 @import "./accordion";
+@import "./mixins.scss";
 
 $body-color: slateblue;
 
@@ -34,10 +35,21 @@ body {
     a:nth-child(1) {
       margin-right: auto;
     }
+
+    @include breakpoint("mobileonly") {
+      a:nth-child(1) {
+        margin: 0;
+      }
+    }
   }
 
   #container {
     margin-top: 2rem;
     padding: 2rem;
+
+    @include breakpoint("mobileonly") {
+      margin-top: 4rem;
+      padding: 0;
+    }
   }
 }

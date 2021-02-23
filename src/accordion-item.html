@@ -6,13 +6,17 @@
     <img class="user-picture" src="$USER_PICTURE" />
     <div class="contact-info">
       <p class="full-name">Full Name: $FULL_NAME</p>
-      <p class="address">Address: $ADDRESS</p>
-      <p class="email">E-mail: $EMAIL</p>
+      <p>
+        <a href="$GOOGLE_MAP_LINK" class="address" target="”_blank”"
+          >Address: $ADDRESS</a
+        >
+      </p>
+      <p class="email">E-mail: $EMAIL></p>
       <p class="cell-number">Cell Number: $CELL_NUMBER</p>
     </div>
     <div class="actions">
-      <button class="call">Call</button>
-      <button class="send-email">Send E-mail</button>
+      <a class="button call" href="tel:$CELL_NUMBER">Call</a>
+      <a class="button send-email" href="mailto:$EMAIL">Send E-mail</a>
     </div>
   </section>
 </li>

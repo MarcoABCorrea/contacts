@@ -1,0 +1,33 @@
+@import "breakpoints.scss";
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  } @else if $point == laptop {
+    @media (min-width: $laptop) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $point == phablet {
+    @media (min-width: $phablet) {
+      @content;
+    }
+  } @else if $point == mobileonly {
+    @media (max-width: $mobileonly) {
+      @content;
+    }
+  } @else if $point == "<tablet" {
+    @media (max-width: $tablet - 1) {
+      @content;
+    }
+  } @else if $point == ">desktop" {
+    @media (min-width: $desktop + 1) {
+      @content;
+    }
+  }
+}
